@@ -2,7 +2,7 @@
 
 
 
-### [Do Convnets Learn Correspondence?](https://github.com/ranti-iitg/DeepVisionPapers/settings)
+### [Do Convnets Learn Correspondence?](https://arxiv.org/pdf/1411.1091v1.pdf)
 This paper main theme is do connvnets have spatial information stored in their feature space. Convnets perform very well on Classification and Object detection tasks beating all previous models, but what about visual correspondence.
 
 It was believed that as the receptive fields of convnets are large they may loose spatial information but this paper have shown that despite having higher receptive fields convnets perform better than SIFT based correspondence approaches. In this paper author have discussed maily 4 tasks,
