@@ -34,7 +34,7 @@ Q) Same type of question arises what about end to network can we use RNN for thi
 ## Conclusion Even with higher receptive fields convnets feture space preserve spatial information. 
 
 
-### [Do Convnets Learn Correspondence?](https://arxiv.org/pdf/1504.03641.pdf)
+### [Learning to Compare Image Patches via Convolutional Neural Networks](https://arxiv.org/pdf/1504.03641.pdf)
 Large datasets contain patch correspondence between images, can we make proper use of such datasets to automatically learn a similarity function for image patches?
 Author aims to build patch similarity function from scratch using convolutional neural networks, with diffrent architectures.
 Author explores many neural network architectures mainly two types. 1)First compute descriptor then similarity function on top of descriptor, similarity function can be L2 , SVM or fully connected layers. 2) skip part related to descriptor and directly learn proceed with similaity function.
@@ -55,10 +55,10 @@ No descriptor just similarity function.
 To work with changing patch sizes author suggest image proportional image pooling, i.e if images patch size is more then pool more.
 
 ## Q) 
-1.Visualization of features?
-2.Loss of information as classes information is not taken?
-3.In 2 channel network would it ignore information present on edges which may be useful for decisio making?
-4.No tranfer knolegde takes place.
+# 1.Visualization of features?
+# 2.Loss of information as classes information is not taken?
+# 3.In 2 channel network would it ignore information present on edges which may be useful for decisio making?
+# 4.No tranfer knolegde takes place.
 
 ## Conlcusion: Similarity function based on raw images only, introduced SPP which can be further extended to do multiple pyramid resolutions.
 
