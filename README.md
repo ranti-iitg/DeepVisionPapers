@@ -62,5 +62,23 @@ To work with changing patch sizes author suggest image proportional image poolin
 
 ## Conlcusion: Similarity function based on raw images only, introduced SPP which can be further extended to do multiple pyramid resolutions.
 
+### [Universal Correspondence Network](https://arxiv.org/pdf/1504.03641.pdf)
+Correspondence is very important task from 3d point projections between different images to semantic similarities to scene understanding, previous approaches usuualy focused on patch smilarity which usualyy takes O(n^2) passes and never takes whole image understading at once as it never sees whole image. Main key points in UCN are 1)Correspondence Contrstive loss 2) Fully convolutional NN with fast active hard negative mining 3)Fully Convolutional Patch normalization.
+## Correspondence Contrastive loss:
+The loss function is trying to push feature vectors corresponding to same points in two images towards each other whereas it trying to push away points atleast a distance of m who are different.
 
+Q) Why both losses are needed? Why are we pushing vectors away from each other isn't first part of loss function i.e pulling vectors towards each other enough?
+Q) Why L2 loss?
+Q) How to choose margin 'M', Why SVM type loss, why not 1/d?
+Q) How is the value of Si decided?
+Q) Was transfer learning used or not , not clear.
+## Hard negative mining
+This concerns with the second part of loss fucntion, how to get pairs whose distance is less than 'M' but they are different points, Author suggests something like taking lets say 1000 points from image 1 then, computing distance to all other points in image2 and doing KNN to form blobs then take loss function value.
+Q)It depends upon speed of KNN and value of 'K'?
+Q) Why are we concentrating between two images first loss is taking care of that if two points correspond then they should have
+same kind of vector? Other way around is in one image take all features correspoing to 'n' points then sort them according to their length? then compare only points which in window of 5 or so reducing time to O(nlog(n)).
 
+## Experiments:
+Author then performs experiments for geometric as well as Semantic Correspondence on KITTI and CUB etc datasets.
+
+## Conclusion: with corresponding contrastive loss function author is able to reduce each feature point to corresponding embedding in preserving geometric as well as semantic similarity.
