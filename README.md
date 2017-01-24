@@ -81,6 +81,9 @@ Q) Why are we concentrating between two images first loss is taking care of that
 same kind of vector? Other way around is in one image take all features correspoing to 'n' points then sort them according to their length? then compare only points which in window of 5 or so reducing time to O(nlog(n)).
 
 ## Experiments:
-Author then performs experiments for geometric as well as Semantic Correspondence on KITTI and CUB etc datasets.
+Author then performs experiments for geometric as well as Semantic Correspondence on KITTI and Pascal etc datasets. for Geometric correspondence author picks random 1000 correspondences in each KITTI or MPI images during training, If nearest neighbour in feature space is more than 16 pixels away it is considered to be negative point. for Semantic Correspondence same kind of architecture is used. In addition author also takes care of variable image sizes by proposing that a point is correctly matched if lies within a distance of alfa.L, where L is image size and alfa is metaparameter. 
+
+## Future Works
+Using this architecture get optical flow, camera pose estimation etc.
 
 ## Conclusion: with corresponding contrastive loss function author is able to reduce each feature point to corresponding embedding in preserving geometric as well as semantic similarity.
