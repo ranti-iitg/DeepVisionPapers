@@ -1,5 +1,8 @@
 ## Welcome to my page here I will discuss gist of some papers that I wil read
+
+
 ### [Learning Dense Correspondence via 3d guided Cycle Consistency](https://arxiv.org/pdf/1604.05383v1.pdf)
+
 Main Idea of this paper is use consistency as signal for superviosion. In this task author tackles very interesting problem of dense correspondence without much ground truth data. For each pair of training images author finds a 3d CAD model and render two synthtic views and use 4 consistency cycle to predict synthetic to real, real to real and real to synthetic correspondence using only synthetic to synthetic correspondence.
 Given 3d model of two images challenge use this information to infer correspondence between two real views.
 
