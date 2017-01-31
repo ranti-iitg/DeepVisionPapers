@@ -1,5 +1,27 @@
 ## Welcome to my page here I will discuss gist of some papers that I wil read
 
+### [Learning to see by moving](https://arxiv.org/pdf/1505.01596v2.pdf)
+Humans use visual perception for recognizing objects and perform various actions like moving around etc. Currently e have huge supervised dataset like ImageNet dataset but is it something special about labels, Is there any other supervision which can be used. biological agents perform complex visual tasks without need of supervised labels. Main Idea of this paper is Is it possible that agents can learn perceptual representations using their motor actions as supervision.
+In humans and other animals brain have full access of knowledge of their egomotion(self motion) which can be taken as weak supervison for learning visual representations.
+Author proposes that ueful visual representations can be learnt by using egomotion as supervion.
+
+## Two stream architnture
+Architecture is really simple it is kind of siamese architecture. Two streams both sharing same set of weights computing features from two images combined on top to classification problem of transformation. X, Y and rotation around Z axis is predicted and all three loses are taken into account. Originally a regression problem it is transformed into classification problem by using buckets.
+Q) Why classification rather than regression no reason given?
+
+##  Datasets used KITTI and SF dataset
+
+## Features learned uisng Egomoiton as supervison were later put on test for taks like
+1) Scene Recognition
+2) Object Recogniton
+3) Intra Class keypoint Matching
+4) Visual Odometry
+On most of the tasks this egomotion based weak superviosn outperformed Unsupervised methods
+
+Q) At the end author suggests something like active learning in which agent is free to move is space and decides to move to improve internal data feature representaion, Is reinforcement learning is the approach for this task, What about reward function of reinforement learning which relates to better feature representaions?
+Q) Can we use this technique for reinforcement learning pretrainin as in some reinforcemnt learning problems rewards function is very scarce, so we can use this egomotion weak supervision to learn some basic features about environement?
+
+## Conclusion Author concludes by following results that weak supervision works for image feature learning task.
 
 
 ### [Do Convnets Learn Correspondence?](https://arxiv.org/pdf/1411.1091v1.pdf)
