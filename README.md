@@ -1,4 +1,35 @@
 ## Welcome to my page here I will discuss gist of some papers that I wil read
+### [Viewpoints and Keypoints](https://arxiv.org/pdf/1411.6067v2.pdf)
+Main Idea of this paper is combining viewpoint estimation with keypoint estimation in a way thatviewpoitn estimation provides 
+global perspective about object whereas keypoint provide more of local prospect. Author is inspired by theory of of global precedence- that says humans perceive the global structure before the fine level local details. Algorithm works in two parts first author estimates the viewpoint for target object and then use this global knowledge about object with local keypoint estimation to get better keypoiny estimation.
+
+## Viewpoint Prediction
+Author formulates the problem of keypoint prediction as predicting euler angles azimuth, elevation and cyclorotation. A simple pretrained netwoork is used for this task.
+
+## Local Appearence based Keypoint Activation
+A fully connected CNN is used to model log-likelihood distribution of each keypoint locally, Only thing new here is usage of multiple scales and combining them.
+
+## Viewpoint conditioned KeypointLikelihood
+Given or after predicting viewpoint author uses gaussian mixture model to model viewpoitn conditioned keypoint likelihood.
+
+## Keypoint Prediction
+Author tries to solve both taks of keypoint Localization and Keypoint Detection using both local and global estimates computed previously.
+
+## Viewpoint Estimation Architecture
+Architecture is pretrained CNN netwotk from Imagenet with differnt fully connected layers. Outputs of this network are Nc*Na*Nq, Amazing thing is instead of training a separate CNN for each class loss layer is implemented in a way to select class corresponding angles. I haven't gone into details of this layer yet.
+
+## Multiscale Convolutional Response maps
+Author trains a fully connected CNN on multiple sclae inputs to get many convolutinal maps and then linearly combine them.
+
+## Viewpoint Conditioned Keypoint Likelihood
+Using estimated viewpoint we can say in a left facing car we can't see right wheels. Using training data of similar viewpoints we can estimate the keypoints. This data will act as prior probability. Author combines all data's which lie in geodesic distance using mixture of gaussians model.
+
+## Keypoint Estimation
+This previouslly computed data which is global act as prior probability which is then combined with more local inforamtion like keypont log likelihood to give us posterior estimation of keypoints.
+
+
+## Experiments
+Author performs many experiments some for keypoint and viepoint estimation with Ground truth box and without. Author gives state of art performance for both tasks.
 
 
 ### [Learning Dense Correspondence via 3d guided Cycle Consistency](https://arxiv.org/pdf/1604.05383v1.pdf)
