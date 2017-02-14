@@ -1,4 +1,38 @@
 ## Welcome to my page here I will discuss gist of some papers that I wil read
+
+### [Predicting Depth,Surface Normals and semantic Labels with a Common Multiscale Convolutional Architecture](https://arxiv.org/abs/1411.4734)
+
+Scene understanding is a important task. this paper solves semantic label, depth and normal prediction with shared computation in lower layers of using CNN architecture, Main Idea of this paper is using both local and coarse global featres, scale invariant loss fucntion and shared computation btw diffrent tasks.
+This multiscale approach firstly takes coarse global feautres and then magnifies local features to refine them.
+
+## Scale 1: Full Image View:
+sclal1 gets get full image view because of pooling layers and fully connected layers at the end having full but coarse field of view.
+
+## Scale 2: Predictions:
+This layer only have convolution layers and no pooling or fully connected layers(there are fc layers but those are discareded after training). field of view of every feature is very small compared to features of first layer which gets full view.
+
+## Scale 3: Higher resolutons:
+This final just adds more refinement it is similar to secod layer just input is larger and magnification is higher.
+
+## Scale invariant loss function:
+as input image may have diffrent scales to protect us from that author proposed sclae invariant loss function, loss value will remain same even if you replaced d with 2d.
+
+## Training Procedure:
+Firstly author trains scale1 and 2 jointly and after fixes thes and trains scale3.
+
+## Parameter Sharing:
+Scale 1 stack is shared wiht both nornmal and depth task.
+
+## Experiments:
+Author gets state of art results over depth, normal task on NYU depth V2 datset.
+
+## questions:
+1. Why not train after scale 1 also like we did after scale 2?
+2. Is there any problem where multiscale can decrease the performance as we have seen it alays incresesit?
+3. Is there any other architecture which can be used in place of multisclaing like skip connections something like resnets?
+4. If i replace sclale1 architure with scale2 qarchitecute and scale2 with scale1, i.e firstly get local feautres and then get global features what would be impact?
+
+
 ### [Viewpoints and Keypoints](https://arxiv.org/pdf/1411.6067v2.pdf)
 Main Idea of this paper is combining viewpoint estimation with keypoint estimation in a way thatviewpoitn estimation provides 
 global perspective about object whereas keypoint provide more of local prospect. Author is inspired by theory of of global precedence- that says humans perceive the global structure before the fine level local details. Algorithm works in two parts first author estimates the viewpoint for target object and then use this global knowledge about object with local keypoint estimation to get better keypoiny estimation.
