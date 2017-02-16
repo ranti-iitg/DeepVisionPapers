@@ -1,5 +1,29 @@
 ## Welcome to my page here I will discuss gist of some papers that I wil read
 
+### [FlownNet: Learning Optical flow with convolutional networks](https://arxiv.org/pdf/1501.02565.pdf)
+In this paper author proposes training CNN's end to end to learn predicting the optical flow fiel from pair of images.
+The author experimented with both end to end standard CNN and Correlation CNN for optical flow. Surprisingly both networks did good job.
+
+## Architectures
+Approach is really simple given pair of iamges and ground truth learn end to end network to learn to predict ground truth. In this case ground truth is optical flow. Ony problem with this kind of network is high output space but author used refinement networks to increase the accuracy of output using gloabal(coarse) as well as local feautres.
+
+## Contracting part:
+Simple choice is to stack both input images on each other and  let network decide itself how to process it. this nertwork is called flownetsimple. Another way to create a siamese type network and later combine those feature at higher level to get output. These lower layers xtract important features from both images. Now to helparchtecture to combine those freatures in meaningfull way author proposes a corrleation layer. This correlation layer is basically with no weights and convolving one layer with another layer in small patches within a distance of d.
+
+## Expanding part:
+Upsampling is done here but also using lower layer features, So we have coarse high level features we combine them with lower layer more local feautres to increase resolution.
+
+## Training Data:
+As optical flow data is not generally available so author made some systhetic data using rotating chairs.
+
+## Experiments:
+experiments were performed on Sintel, KITTI, flying chair datasets and very highly accurate results were produced.
+
+## Conclusion:
+Author concludes by saying that network generalizes very well to non synthetic natural environments also is end to end trainanble.
+
+Q) Logic behind strange Correlation layer why not something simple was used?
+
 ### [Predicting Depth,Surface Normals and semantic Labels with a Common Multiscale Convolutional Architecture](https://arxiv.org/abs/1411.4734)
 
 Scene understanding is a important task. this paper solves semantic label, depth and normal prediction with shared computation in lower layers of using CNN architecture, Main Idea of this paper is using both local and coarse global featres, scale invariant loss fucntion and shared computation btw diffrent tasks.
