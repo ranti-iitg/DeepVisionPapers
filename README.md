@@ -1,6 +1,6 @@
 ## Welcome to my page here I will discuss gist of some papers that I wil read
 
-### [FlownNet: Learning Optical flow with convolutional networks](https://arxiv.org/pdf/1501.02565.pdf)
+### [FlowNet: Learning Optical flow with convolutional networks](https://arxiv.org/pdf/1501.02565.pdf)
 In this paper author proposes training CNN's end to end to learn predicting the optical flow fiel from pair of images.
 The author experimented with both end to end standard CNN and Correlation CNN for optical flow. Surprisingly both networks did good job.
 
