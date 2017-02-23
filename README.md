@@ -1,5 +1,33 @@
 ## Welcome to my page here I will discuss gist of some papers that I wil read
 
+### Learning to Generate Chairs with Convolutional Networks
+Using a dataset of 3D models (chairs, tables, and cars), train generative ‘up-convolutional’ neural networks that can generate
+realistic 2D projections of objects from high-level descriptions.
+Supervised learning and assumes high-level latent representation of the images Generate large high quality images of 128 x 128 images Complete control over which images to generate. Only Downside is the need for labels that fully describe the appearance of each image 
+## Network Architecture
+Targets are the RGB output image x and the segmentation mask s. Generative network g(c, v, θ) is composed of three vectors:
+c: model style
+v: horizontal angle and elevation of the camera position
+θ: parameters of additional transformations applied to the images
+2 Stream Network, from fully connected layers we are upsampling(unpooling) to RGB images and segmentaion Image. Input is high level feature description.
+## Experiments
+Modeling Transformations
+Viewpoint Interpolation
+Elevation Transfer / Extrapolation
+Style Interpolation
+Some Feature Space Arithmetic
+Correspondences
+
+## Analysis of the Network
+To make sure that network is not just remembering the input author performs some analysis of ntwork like fixing some parameters and experimenting over some activtations in high level input. And author observes some activations were for Zoom, some for rotaiton etc.
+
+## Conclusion
+Supervised training of CNNs can be used to generate images given high-level information
+Network does not simply learn to generate training samples but instead learns an implicit 3D shape and geometry representation
+
+
+
+
 ### [FlowNet: Learning Optical flow with convolutional networks](https://arxiv.org/pdf/1501.02565.pdf)
 In this paper author proposes training CNN's end to end to learn predicting the optical flow fiel from pair of images.
 The author experimented with both end to end standard CNN and Correlation CNN for optical flow. Surprisingly both networks did good job.
