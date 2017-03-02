@@ -1,5 +1,22 @@
 ## Welcome to my page here I will discuss gist of some papers that I wil read
 
+### Learning-Based View Synthesis for Light Field Cameras
+
+Reducing the inherent tradeoff between angular and spatial resolution. Process of estimating image at novel viewpoitn was boken into two parts disparity estimation and color estimation. These methods will allow consumer light field cameras to have low angular resolution and hence higher spatial resolution.
+
+## Disparity estimation
+First half of network is used to estimate disparity of images without ground truth. Once the disparity is estimated at novel view all input images are then warped to that novel view. All warped images should have same color at each pixels in novel view. Authors implementatin used 100 disparity levels and then warped each image to nvel view using that disparity level to generate Mean and Standard Deviation of all input warped images at each input level.
+
+## Color Predictor
+Genrating final image at novel view using disparity map and input images using CNN architecture. Input is N warpe images , disparity and novel view q.
+
+## Training
+L2 loss is used to train network using ground truth images. As there are two networks color estimtor and disparity estimator, gradients to both these networks are sent by grdient descent.
+
+## Results
+ Against a single end-to-end CNN it performs far better because normal single end to end CNN gives blurry images. Against other approaches it have egde because of task specific disparity estimator. In some cases where other methods fail this method still gives better results. Also it performs better in case of extrapolation for which it was not even designed for.
+
+
 ### Learning to Generate Chairs with Convolutional Networks
 Using a dataset of 3D models (chairs, tables, and cars), train generative ‘up-convolutional’ neural networks that can generate
 realistic 2D projections of objects from high-level descriptions.
