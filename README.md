@@ -1,5 +1,9 @@
 ## Welcome to my page here I will discuss gist of some papers that I wil read
 
+### Demon: Depth and Motion Network for learning Monocular Stereo
+Taking two images to predict depth and camera motion(ego), but there is diffrence, Here first part of network predicts optical flow and warps second image based on that optical flow(disparity)(note that it is similar to case when Unsupervised dense map estimation from stereo image). Then this warped image is taken as input to net predict depth and motion. There one more part iterative part where net basically takes depth + camera(ego motion) = disparity(optical flow ) and optical flow+camera(ego motion)=depth maps and do this iteratively. 
+
+
 ### Learning-Based View Synthesis for Light Field Cameras
 
 Reducing the inherent tradeoff between angular and spatial resolution. Process of estimating image at novel viewpoitn was boken into two parts disparity estimation and color estimation. These methods will allow consumer light field cameras to have low angular resolution and hence higher spatial resolution.
