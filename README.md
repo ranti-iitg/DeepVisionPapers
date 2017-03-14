@@ -6,15 +6,15 @@ Decomposing appearence into its intrinsic properties is a chellenging task due t
 ## Direct approach
 End to end model for predicting reflectacne map, this is a very simple end to end network similar to encoder decoder network usign deconvolutoins to get output reflectance map. The loss fucntion is L2 loss between RGB values for the predicted values and ground truth.
 
-## Indirect approach steps
-
-  1. Estimate per-pixel orientation maps from RGB image.(CNN)
+## Indirect approach
+This consists of 4 steps:
+#  1. Estimate per-pixel orientation maps from RGB image.(CNN)
  This is done end to end using CNN and taking L2 loss with ground truth. we map coordiantes to s,t coordinates of sphere.
-  2. Upsample orientation map to available image resolution.(Transformation)
+#  2. Upsample orientation map to available image resolution.(Transformation)
  Simple upsampling was used to get to higher resolution.
- 3. Changing from image to direction domain to get sparse reflectance maps.(Transformtion)
+# 3. Changing from image to direction domain to get sparse reflectance maps.(Transformtion)
   Here we reconstruct a sparse reflectance map from the orientation map and input image. Goal is to map samples from image to directional domain.
-4. Predicting dense from reflectance maps from sparse maps.(CNN) SparseNet: CNN is used to convert from sparse to dense reflectance map.
+# 4. Predicting dense from reflectance maps from sparse maps.(CNN) SparseNet: CNN is used to convert from sparse to dense reflectance map.
 
 Synthetic dataset were also used, This paper gives both end to end and indirect networks, Where indirect network works better because of addditional supervision which ultimately increases accuracy.
 
