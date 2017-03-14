@@ -1,5 +1,25 @@
 ## Welcome to my page here I will discuss gist of some papers that I wil read
 
+### Deep Reflectance Maps
+Decomposing appearence into its intrinsic properties is a chellenging task due to difficult inverse problem. Authors here try to learn this inverse function in an end to end way using Convolutionla neural network. The input to this system is 2d image from a known object class. Author takes two approaches one is end to end using deconvolutions.For the second first get per pixel surface normal which are then used to compute sparse reflectance maps from visible normals.
+
+## Direct approach
+End to end model for predicting reflectacne map, this is a very simple end to end network similar to encoder decoder network usign deconvolutoins to get output reflectance map. The loss fucntion is L2 loss between RGB values for the predicted values and ground truth.
+
+## Indirect approach steps
+ # 1. Estimate per-pixel orientation maps from RGB image.(CNN)
+ This is done end to end using CNN and taking L2 loss with ground truth. we map coordiantes to s,t coordinates of sphere.
+ # 2. Upsample orientation map to available image resolution.(Transformation)
+ Simple upsampling was used to get to higher resolution.
+# 3. Changing from image to direction domain to get sparse reflectance maps.(Transformtion)
+Here we reconstruct a sparse reflectance map from the orientation map and input image. Goal is to map samples from image to directional domain.
+# 4. Predicting dense from reflectance maps from sparse maps.(CNN)
+SparseNet: CNN is used to convert from sparse to dense reflectance map.
+
+Synthetic dataset were also used, This paper gives both end to end and indirect networks, Where indirect network works better because of addditional supervision which ultimately increases accuracy.
+
+
+
 ### Demon: Depth and Motion Network for learning Monocular Stereo
 Taking two images to predict depth and camera motion(ego), but there is diffrence, Here first part of network predicts optical flow and warps second image based on that optical flow(disparity)(note that it is similar to case when Unsupervised dense map estimation from stereo image). Then this warped image is taken as input to net predict depth and motion. There one more part iterative part where net basically takes depth + camera(ego motion) = disparity(optical flow ) and optical flow+camera(ego motion)=depth maps and do this iteratively. 
 
