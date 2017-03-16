@@ -1,5 +1,26 @@
 ## Welcome to my page here I will discuss gist of some papers that I wil read
 
+
+### 3D Semantic Parsing of Large-Scale Indoor Spaces
+
+Author proposes a method for parsing the point cloud of an entire building using a hierarchical approach 
+Step 1. parses the point cloud into semantically meaningful spaces (e.g., rooms, hallways, lobby) and aligns them in 3D.
+Step 2. The second step parses each of these spaces into their structural and building elements (e.g., walls, columns, etc). 
+
+## Parsing Into Disjoint Spaces:
+Motivated by the peak-gap-peak signature of walls in 1D histograms of density of points projected to the major axes of a scanned area, Author form a bank of filters designed to fire in the location of walls when convolved with such signals. Author convolve each axis's histogram of density of points with filter bank which results to candidate space dividers. Author recursively merge segments uisng Connected components that belong to the same enclosed space by identifying the existence of a space divider in the connection area of two neighboring segments. This approach is highly scalable and unsupervised. 
+
+##  Acquiring a common geometric space:
+Mostly spaces within the same building have a recurrent structure and layout configuration. This structure can easily be exploited by creating a common geometric space for all rooms. Unit cube (normalization) all spaces to associate a local reference system for each semantic space (e.g. rooms, hallways etc.). 
+
+## Parsing Spaces into Semantic Elements:
+Detection rather than segmentation, 12 class(window,door etc) one vs all classifie is trained giving output for each voxel.CRF is used on top of SVM to give contexual overall informaation.
+
+## Applications of Semantic Parsing:
+Space Statistics, Estimation of Natural Illumination Model, Space Manipulation etc.
+
+
+
 ### Deep Reflectance Maps
 Decomposing appearence into its intrinsic properties is a chellenging task due to difficult inverse problem. Authors here try to learn this inverse function in an end to end way using Convolutionla neural network. The input to this system is 2d image from a known object class. Author takes two approaches one is end to end using deconvolutions.For the second first get per pixel surface normal which are then used to compute sparse reflectance maps from visible normals.
 
