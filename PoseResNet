@@ -1,0 +1,2 @@
+state of the art pose detection machine is curretly using Deep supervised convolutional neural network similar to googlenet because of problem
+of dying gradients in lower layers. I think it would be better to use ResNet directly to get better results.
