@@ -1,4 +1,64 @@
-## Welcome to my page here I will discuss gist of some papers that I wil read
+## Welcome to my page here I will discuss gist of some papers that I will read
+
+
+
+
+
+
+
+### HD Maps: Fine grained Road Segmentation by parsing Ground and Aerial Images(http://www.dlr.de/eoc/en/desktopdefault.aspx/tabid-5431/9230_read-46774/).
+Current maps require lot of laborious man hours ti label them correctly, however an alternative is using lidar data label them correctly. But getting lidar data of all roads is very difficult task. So author proposes to use both aerial and ground images to jointly infer fine grained segmentations of roads. Author formulates problem as energy minimization problem and infer number of roads, locations of road, parking spots, sidewalks adn background as well as alignemnet between ground and aerial images from model.
+
+## Fine grained Semantic Parsing of roads
+freely available cartographic maps(osm) that gives topology of raod network.xa aerial image, xm road map,xg ground stereo images.(xm is composed of set of roads where each road is represented by piece wise linear curve representing its centerline).
+
+## Model Formulation:
+Author solves this problem using MRF(which is given below).
+#  RV ={B1,s1,b2,s2,p,l1-l6,s33,b3,s4,b4} there are 15 rv's
+#  graph is very simple connected graph b1-s1 s1-b2 etc
+#  range of rv value each rv can take value from -15 m to 15 m from center line of OSM.
+#  for ground image alignement we have t as rv which ranges between -4m to +4m.
+
+## Energy 
+energy is composed of air, ground smoothness etc.
+
+## Aerial Semantics
+the aerial semantic potential encodes tha fact that our final segmentation should agree with semantics estimated by deep net.
+## Aerial edges
+## Along road smoothness
+## Parallel roads
+## Road Collapse constraints
+## Lane size constraint
+## CenterLine prior
+
+
+## Ground Semantics:
+Author does semantics on ground image and then project images to bird eye eye and want them to align with aerial semantic images.
+
+## BCD as optimizer.
+
+
+
+
+### Markov Random fields for image analysis.
+Moto: Specify locally model globally.
+MRF is a countable set of RV(random variables).
+## Model Ingredients:
+# set of rv's
+# graph of rv's
+# range of each rv
+# potential of each rv both single and double(although double not required) with some parameters.
+
+## Markov blanket
+Set of RV's not in clique but connected with an edge to given rv.
+
+## Markov Property
+total probability can be easily defines in terms of single potential and markov balnket double potential.
+
+## Use EM or someother optimization to optimize given graph to find optimal values of parameters, after this we can infer everything from potentials or probabilities.
+
+
+
 
 
 ### [Universal Correspondence Network](https://arxiv.org/abs/1606.03558)
