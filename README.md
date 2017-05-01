@@ -38,7 +38,7 @@ Using this architecture get optical flow, camera pose estimation etc.
 
 
 
-### 3D Semantic Parsing of Large-Scale Indoor Spaces
+### [3D Semantic Parsing of Large-Scale Indoor Spaces](http://buildingparser.stanford.edu/method.html)
 
 Author proposes a method for parsing the point cloud of an entire building using a hierarchical approach 
 Step 1. parses the point cloud into semantically meaningful spaces (e.g., rooms, hallways, lobby) and aligns them in 3D.
