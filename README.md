@@ -371,5 +371,5 @@ total probability can be easily defines in terms of single potential and markov 
 
 ## Use EM or someother optimization to optimize given graph to find optimal values of parameters, after this we can infer everything from potentials or probabilities.
 
-
+### Most of self driving cars rely on detailed maps of environment to facilitate navigation and percetion, these maps are generally obtained via costly manal intervention limiting the applicapability of current approaches.use OSM but map information is noisy and partially missing width of most of roads.
 
