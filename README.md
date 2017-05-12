@@ -373,3 +373,72 @@ total probability can be easily defines in terms of single potential and markov 
 
 ### Most of self driving cars rely on detailed maps of environment to facilitate navigation and percetion, these maps are generally obtained via costly manal intervention limiting the applicapability of current approaches.use OSM but map information is noisy and partially missing width of most of roads.
 
+### Basics of Deep Learning
+
+## Types of Classifiers
+# 1. Generative : In generative classifiers we model P(X|y) then using Bayes we get P(y|x).
+# 2. Discriminative : In discrimintive models we directly go for modelling P(Y|X), using some function approximator or something else.
+
+## Some Linear algebra.
+AX=B have zero, infinite or one solution, If Det(A)!=0 then A is non singular then it have one solution, else zero or infinite. 
+
+## Eigen decompositon
+x-> Mx is linear transformation from one space to another, where M is a matrix, 
+Mu=Lambda(u), hence matrix M is not changing direction of vector u, we call vector as eigen vector of matrix M, for all matrices there eigen vectors exist they may be complex but for our case all symmetric mtrices have real valued eigen vectors and lambda are there eigen values,(for invertible matrices lambda!=0), for PSD matrices lambda>=0, PD lambda>0, also as all eigenvectors are orthogonal to each other we can get orthogonal matrix by palcing them on each other.
+# one important thing is that we can represent A=eigen_vector(diag_eigen_values)(eigen_vector)' this is known as eigendecomposition.
+ but for non-square matrices we have SVD singular value decompostion
+# SVD A=U_D_V, where U are eigen vectors of AA' and V are eigen vectors of A'A, where diagonal matrix D is square root eigen values of both. its usage comes when we need pseudo inverse.
+
+
+## Informative Projections:
+# PCA principal component analysis: 
+we are given many datapoints in many dimansions we want to reduce dimension, we only want dimensions with max variance, what we do is we use covariance matrix of this datasets, from this covariance matrix which is guaranteed to be PSD, we get direction of maximum variance by sorting on eigen values,using this we can get max p directions, and then project our new datapoint x in that p directions uisng dot product along unit eigen vectors.
+
+
+## Information theory concepts:
+# Information = -log(p(x))
+# Shannon Entropy Expectation(Information)
+# Cross Entopy = -Expectation_x_data(log(P^(x))) which is also Min log likelihood
+
+## Numerical Computation
+
+# Overfow/ Underflow:
+Underflow when digit near zero is rounded off to zero, when number is large and rounded off to infinity. major problems can occur in functions like softmax where both underflow and overflow cnan occur but which can be prevented using maximum number substration.
+
+## Convex functions: a function is convex like x^2, there global minimum is also local min etc hence solving them is easier and in many cases there anaytical solution exist, for exmaple in case of linear regression analytical solution exist, but that solution inviolves olving inverse and also many problems generaly in case of deeplearning are non convex problems hence we need gradient based approches to solve then both first order and second order techniques can be employed. but first lets see which functions are convex
+# if Hessian matrix(d^2f/didj) is symmetic and PSD for all input values.
+
+## Gradient based optimixaition techniques: non linear function forcing convex to non convex
+# First Order techniques:
+get the direction of steepest descent at current position and move delta in that direction. Note this is approximate this completely ignores curvature around also liner approimation based direction.
+
+# second order methods:
+we can think of second derivative as measuring curvature, we can use hessian to tell saddle point, local min,or local max,
+When all eigen values of hessian are positive definite then local min vice versa for local max, it is saddle point if both negative as well as poistive, otherwise incolclusive. Using hessian eigen values we can get to know our step size of first order gradient based techniques. There also exist Newton Methd which takes inverse of Hesian to get stepsize, using quadratic approximation near current point, but in our cases taking inverse of hesian is near impossible becauuse number of varibleas are generally million in case if deep learning. hence hesian is million by million matrix. also evalutaing H-1 requires high batch size.
+
+## Constrianed Optimization(KKT):
+using lagrange we convert constrained optimization to unconstrained optimization problem, these are very usefull in case of SVM.
+
+
+## Bayesian Statistics:
+In bayesian statistics instead of assuming theta we try to find distribution over theta and integrat over it to find new probability. we also use MAP(maximu a posteriori) to get max value of theta argmax_theta(p(theta|x)).
+
+
+## DeepFeedForward Net:
+function approximation, layer of functio acyclic graphs. 
+
+# Batch full
+#  Mini batch some data
+# stachastic one example onlyy.
+
+
+
+ 
+
+
+
+
+
+
+
+
