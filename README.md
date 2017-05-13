@@ -411,10 +411,33 @@ Underflow when digit near zero is rounded off to zero, when number is large and 
 ## Gradient based optimixaition techniques: non linear function forcing convex to non convex
 # First Order techniques:
 get the direction of steepest descent at current position and move delta in that direction. Note this is approximate this completely ignores curvature around also liner approimation based direction.
+# Better techniques like momentum, adagrad, adam.
+## Momentum:
+v(t+1)=0.9v(t) - learning_rate * cur_gradient
+X=X+v(t+1)
+## Nestorov Momentum
+v(t+1)=0.9v(t) -learning_rate * gradient(loss_function(theta+v(t)))
+X=X+v(t+1)
+
+## AdaGrad:
+Techniques like adagrad work on individual weights try to normalize them here x is individual weight not vector.
+cache=(dx)^2
+x=x-learning_rate * (dx)/(cache)1/2
+
+## RMSprop
+cache is not just sum but updates using weighted sum
+cache=cache * 0.9 + 0.1 * dx^2
+x=x-learning_rate * (dx)/(cache)1/2
+
+## Adam 
+its mixture of momentum and RMS prop
+cache = cache * 0.9 +0.1 * dx^2
+v=0.9v -learning_rate(dx)
+x=x +v/cache^1/2
 
 # second order methods:
 we can think of second derivative as measuring curvature, we can use hessian to tell saddle point, local min,or local max,
-When all eigen values of hessian are positive definite then local min vice versa for local max, it is saddle point if both negative as well as poistive, otherwise incolclusive. Using hessian eigen values we can get to know our step size of first order gradient based techniques. There also exist Newton Methd which takes inverse of Hesian to get stepsize, using quadratic approximation near current point, but in our cases taking inverse of hesian is near impossible becauuse number of varibleas are generally million in case if deep learning. hence hesian is million by million matrix. also evalutaing H-1 requires high batch size.
+When all eigen values of hessian are positive definite then local min vice versa for local max, it is saddle point if both negative as well as poistive, otherwise incolclusive. Using hessian eigen values we can get to know our step size of first order gradient based techniques. There also exist Newton Methd which takes inverse of Hesian to get stepsize, using quadratic approximation near current point, but in our cases taking inverse of hesian is near impossible becauuse number of varibleas are generally million in case if deep learning. hence hesian is million by million matrix. also evalutaing H-1 requires high batch size. Generally second order methods converge faster but hesian which is n^2 dimensional takes about n^3 time to compute also gets stuck in saddle points also for mini batches these second order methods have not yet stabilized as calculating hesian on mini batch gives approximate hessian inverse also calculating hesian inverse using approximate methods give more error.So peoplehave started using LBFGS which directly approximates inverse of Hesian Matrix. but still doesn't works well on mini batches.
 
 ## Constrianed Optimization(KKT):
 using lagrange we convert constrained optimization to unconstrained optimization problem, these are very usefull in case of SVM.
@@ -431,6 +454,7 @@ function approximation, layer of functio acyclic graphs.
 #  Mini batch some data
 # stachastic one example onlyy.
 
+#
 
 
  
