@@ -373,6 +373,13 @@ total probability can be easily defines in terms of single potential and markov 
 
 ### Most of self driving cars rely on detailed maps of environment to facilitate navigation and percetion, these maps are generally obtained via costly manal intervention limiting the applicapability of current approaches.use OSM but map information is noisy and partially missing width of most of roads.
 
+
+### Basics of C++
+## Polymorphism(virtual functions):
+when you want to pass base class pointers and at run time depending upon derived object it is pointing to call that most derivable function on base pointer use polymorphism or virtual functions. just put virtual keyword before function signature in base class and everything is done, also put virtual keyword in all derived classes advisable but not necessary. At run time depending upon object being pointed at using virtual table most derivable function will be called.
+# Advice:
+1. never call virtual function in destructor or constructor.
+
 ### Basics of Deep Learning
 
 ## Types of Classifiers
@@ -454,7 +461,7 @@ function approximation, layer of functio acyclic graphs.
 #  Mini batch some data
 # stachastic one example onlyy.
 
-#
+
 
 
  
