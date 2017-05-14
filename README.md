@@ -375,8 +375,13 @@ total probability can be easily defines in terms of single potential and markov 
 
 
 ### Basics of C++
+## Function pointers:
+# Early binding : when we bind function call with correct address at compile time.Normal calls.
+
+# Late binding : using function pointers, binding at run time, depending at function being pointer at by funcPTr, generally slow. Virtual Functions use this technique with V tables to perform run time binding. For each class a Vtable is constructed having funcPtrs pointing to most derived function for each class.
+
 ## Polymorphism(virtual functions):
-when you want to pass base class pointers and at run time depending upon derived object it is pointing to call that most derivable function on base pointer use polymorphism or virtual functions. just put virtual keyword before function signature in base class and everything is done, also put virtual keyword in all derived classes advisable but not necessary. At run time depending upon object being pointed at using virtual table most derivable function will be called.
+when you want to pass base class pointers and at run time depending upon derived object it is pointing to call that most derivable function on base pointer use polymorphism or virtual functions. just put virtual keyword before function signature in base class and everything is done, also put virtual keyword in all derived classes advisable but not necessary. At run time depending upon object being pointed at using virtual table most derivable function will be called. Also pure virtual fucntions give abstract classes or Interfaces.
 # Advice:
 1. never call virtual function in destructor or constructor.
 
