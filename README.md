@@ -404,20 +404,20 @@ Mu=Lambda(u), hence matrix M is not changing direction of vector u, we call vect
 
 ## Informative Projections:
 # PCA principal component analysis: 
-we are given many datapoints in many dimansions we want to reduce dimension, we only want dimensions with max variance, what we do is we use covariance matrix of this datasets, from this covariance matrix which is guaranteed to be PSD, we get direction of maximum variance by sorting on eigen values,using this we can get max p directions, and then project our new datapoint x in that p directions uisng dot product along unit eigen vectors.
+we are given many datapoints in many dimensions we want to reduce dimension, we only want dimensions with max variance, what we do is we use covariance matrix of this datasets, from this covariance matrix which is guaranteed to be PSD, we get direction of maximum variance by sorting on eigen values,using this we can get max p directions, and then project our new datapoint x in that p directions uisng dot product along unit eigen vectors.
 
 
 ## Information theory concepts:
 # Information = -log(p(x))
-# Shannon Entropy Expectation(Information)
+# Shannon Entropy = Expectation(Information)
 # Cross Entopy = -Expectation_x_data(log(P^(x))) which is also Min log likelihood
 
 ## Numerical Computation
 
 # Overfow/ Underflow:
-Underflow when digit near zero is rounded off to zero, when number is large and rounded off to infinity. major problems can occur in functions like softmax where both underflow and overflow cnan occur but which can be prevented using maximum number substration.
+Underflow when digit near zero is rounded off to zero, when number is large and rounded off to infinity. major problems can occur in functions like softmax where both underflow and overflow can occur but which can be prevented using maximum number substration.
 
-## Convex functions: a function is convex like x^2, there global minimum is also local min etc hence solving them is easier and in many cases there anaytical solution exist, for exmaple in case of linear regression analytical solution exist, but that solution inviolves olving inverse and also many problems generaly in case of deeplearning are non convex problems hence we need gradient based approches to solve then both first order and second order techniques can be employed. but first lets see which functions are convex
+## Convex functions: a function is convex like x^2, there global minimum is also local min etc hence solving them is easier and in many cases there anaytical solution exist, for exmaple in case of linear regression analytical solution exist, but that solution inviolves solving inverse and also many problems generaly in case of deeplearning are non convex problems hence we need gradient based approches to solve then both first order and second order techniques can be employed. but first lets see which functions are convex
 # if Hessian matrix(d^2f/didj) is symmetic and PSD for all input values.
 
 ## Gradient based optimixaition techniques: non linear function forcing convex to non convex
@@ -449,22 +449,22 @@ x=x +v/cache^1/2
 
 # second order methods:
 we can think of second derivative as measuring curvature, we can use hessian to tell saddle point, local min,or local max,
-When all eigen values of hessian are positive definite then local min vice versa for local max, it is saddle point if both negative as well as poistive, otherwise incolclusive. Using hessian eigen values we can get to know our step size of first order gradient based techniques. There also exist Newton Methd which takes inverse of Hesian to get stepsize, using quadratic approximation near current point, but in our cases taking inverse of hesian is near impossible becauuse number of varibleas are generally million in case if deep learning. hence hesian is million by million matrix. also evalutaing H-1 requires high batch size. Generally second order methods converge faster but hesian which is n^2 dimensional takes about n^3 time to compute also gets stuck in saddle points also for mini batches these second order methods have not yet stabilized as calculating hesian on mini batch gives approximate hessian inverse also calculating hesian inverse using approximate methods give more error.So peoplehave started using LBFGS which directly approximates inverse of Hesian Matrix. but still doesn't works well on mini batches.
+When all eigen values of hessian are positive definite then local min vice versa for local max, it is saddle point if both negative as well as poistive, otherwise incolclusive. Using hessian eigen values we can get to know our step size of first order gradient based techniques. There also exist Newton Method which takes inverse of Hesian to get stepsize, using quadratic approximation near current point, but in our cases taking inverse of hesian is near impossible becauuse number of varibleas are generally million in case if deep learning. hence hesian is million by million matrix. also evalutaing H-1 requires high batch size. Generally second order methods converge faster but hesian which is n^2 dimensional takes about n^3 time to compute also gets stuck in saddle points also for mini batches these second order methods have not yet stabilized as calculating hesian on mini batch gives approximate hessian inverse also calculating hesian inverse using approximate methods give more error.So peoplehave started using LBFGS which directly approximates inverse of Hesian Matrix. but still doesn't works well on mini batches.
 
 ## Constrianed Optimization(KKT):
 using lagrange we convert constrained optimization to unconstrained optimization problem, these are very usefull in case of SVM.
 
 
 ## Bayesian Statistics:
-In bayesian statistics instead of assuming theta we try to find distribution over theta and integrat over it to find new probability. we also use MAP(maximu a posteriori) to get max value of theta argmax_theta(p(theta|x)).
+In bayesian statistics instead of assuming theta we try to find distribution over theta and integrat over it to find new probability. we also use MAP(maximum a posteriori) to get max value of theta argmax_theta(p(theta|x)).
 
 
 ## DeepFeedForward Net:
 function approximation, layer of functio acyclic graphs. 
 
-# Batch full
-#  Mini batch some data
-# stachastic one example onlyy.
+# Batch = full
+#  Mini batch =  some data
+# stachastic = one example only.
 
 
 
